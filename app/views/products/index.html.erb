@@ -1,0 +1,17 @@
+<div class="col-md-8 col-md-offset-2">
+  <%= link_to 'New Product', new_product_path %>
+  <br><br>
+  <table class="table table-striped" id="products">
+    <td><%= sort_link(@q, :name) %></td>
+    <td></td>
+    <td></td>
+    
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= link_to "Edit", edit_product_path(product) %></td>
+        <td><%= link_to "Delete", product, method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,13 @@
+<div class="col-md-8 col-md-offset-2">
+  <%= simple_form_for @order do |f| %>
+    <%= f.input :customer_id, collection: @customers,
+                label_method: lambda { |customer| "#{customer.first_name} #{customer.last_name}" },
+                value_method: :id, include_blank: false %>
+
+    <%= f.input :product_id, collection: @products, label_method: :name,
+                value_method: :id, include_blank: false %>
+
+    <%= f.input :deadline %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

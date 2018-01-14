@@ -1,0 +1,28 @@
+<div class="col-md-8 col-md-offset-2">
+  <%= link_to 'New order', new_order_path %>
+  <br><br>
+
+  <table class="table table-striped" id="orders">
+    <td><%= sort_link(@q, :customer_id) %></td>
+    <td><%= sort_link(@q, :product_id) %></td>
+    <td><%= sort_link(@q, :created_at) %></td>
+    <td><%= sort_link(@q, :deadline) %></td>
+    <td><%= sort_link(@q, :done) %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= "#{order.customer.first_name} #{order.customer.last_name}" %></td>
+        <td><%= order.product.name %></td>
+        <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= order.deadline %></td>
+        <td><%= order.done %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Delete', order, method: :delete %></td>
+        <td><%= link_to 'Change status', order, method: :change_order_status %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

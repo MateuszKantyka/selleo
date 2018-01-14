@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - 'db/**/**'
+    - 'config/**/**'
+    - 'bin/**/**'
+    - 'spec/rails_helper.rb'
+Style/Documentation:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

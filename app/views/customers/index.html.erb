@@ -1,0 +1,28 @@
+<div class="col-md-8 col-md-offset-2">
+  <%= link_to 'New Customer', new_customer_path %>
+  <br><br>
+  
+  <table class="table table-striped" id="customers">
+    <td><%= sort_link(@q, :id) %></td>
+    <td><%= sort_link(@q, :first_name) %></td>
+    <td><%= sort_link(@q, :last_name) %></td>
+    <td><%= sort_link(@q, :city) %></td>
+    <td><%= sort_link(@q, :postcode) %></td>
+    <td><%= sort_link(@q, :street_address) %></td>
+    <td></td>
+    <td></td>
+
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.first_name %></td>
+        <td><%= customer.last_name %></td>
+        <td><%= customer.city %></td>
+        <td><%= customer.postcode %></td>
+        <td><%= customer.street_address %></td>
+        <td><%= link_to "Edit", edit_customer_path(customer) %></td>
+        <td><%= link_to "Delete", customer, method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
